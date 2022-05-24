@@ -3,8 +3,9 @@ import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import Pizza from "./components/Pizza";
-
+import pizzas from "./pizza.json";
 import "./scss/app.scss";
+console.log(pizzas)
 
 function App() {
   return (
@@ -18,15 +19,11 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
-            <Pizza title="Мексиканская" price="500"/>
+            {
+              pizzas.map((obj) => {
+                return <Pizza title={obj.title} price={obj.price} imageUrl={obj.imageUrl} sizes={obj.sizes} types={obj.types}/>
+              })
+            }
           </div>
         </div>
       </div>
