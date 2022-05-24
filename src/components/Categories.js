@@ -21,6 +21,7 @@ function Categories() {
         {categories.map((pizza, index) => {
           return (
             <li
+              key={index}
               onClick={() => onClickCategory(index)}
               className={activeIndex === index ? "active" : ""}
             >

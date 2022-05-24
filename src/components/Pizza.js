@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Pizza(props) {
-  const pizzaType = ['тонкое', 'традиционное'];
+  const pizzaType = ["тонкое", "традиционное"];
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
 
@@ -11,15 +11,27 @@ function Pizza(props) {
       <h4 className="pizza-block__title">{props.title}</h4>
       <div className="pizza-block__selector">
         <ul>
-        {
-          props.types.map((type) => {
-            return <li onClick={() => setActiveType(type)} className={activeType === type ? "active" : ""}>{pizzaType[type]}</li>
-          })
-        }
+          {props.types.map((type,i) => {
+            return (
+              <li
+                key={i}
+                onClick={() => setActiveType(type)}
+                className={activeType === type ? "active" : ""}
+              >
+                {pizzaType[type]}
+              </li>
+            );
+          })}
         </ul>
         <ul>
           {props.sizes.map((size, i) => (
-            <li onClick={() => setActiveSize(i)} className={activeSize === i ? "active" : ""}>{size} см.</li>
+            <li
+              key={i}
+              onClick={() => setActiveSize(i)}
+              className={activeSize === i ? "active" : ""}
+            >
+              {size} см.
+            </li>
           ))}
         </ul>
       </div>

@@ -5,7 +5,7 @@ import Sort from "./components/Sort";
 import Pizza from "./components/Pizza";
 import pizzas from "./pizza.json";
 import "./scss/app.scss";
-console.log(pizzas)
+console.log(pizzas);
 
 function App() {
   return (
@@ -19,11 +19,12 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            {
-              pizzas.map((obj) => {
-                return <Pizza title={obj.title} price={obj.price} imageUrl={obj.imageUrl} sizes={obj.sizes} types={obj.types}/>
-              })
-            }
+            {pizzas.map((obj) => {
+              return (
+                <Pizza key={obj.id} {...obj}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
