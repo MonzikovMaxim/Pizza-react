@@ -6,7 +6,6 @@ import Pizza from "../components/Pizza";
 import PizzaSkeleton from "../components/PizzaSkeleton";
 
 const Home = () => {
-
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -15,12 +14,13 @@ const Home = () => {
       .then((res) => res.json())
       .then((items) => {
         setItems(items);
-        setIsLoading(false)
-      })
+        setIsLoading(false);
+      });
+      window.scrollTo(0, 0)
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -31,7 +31,7 @@ const Home = () => {
           ? [...new Array(6)].map((_, index) => <PizzaSkeleton key={index} />)
           : items.map((obj) => <Pizza key={obj.id} {...obj} />)}
       </div>
-    </>
+    </div>
   );
 };
 
