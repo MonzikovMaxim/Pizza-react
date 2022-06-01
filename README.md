@@ -1,2 +1,2 @@
 # Pizza-react
-Pizza project
+Pizza project by Archakov Blog
